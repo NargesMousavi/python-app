@@ -7,7 +7,7 @@ class TopicModelingResource:
     def on_get(self, req, resp):
         """Handles GET requests"""
         resp.status = falcon.HTTP_200  # This is the default status
-        resp.body = ("thread id: "+str(threading.get_ident()))
+        resp.body = ("thread id: "+str(threading.get_ident()) +"\n active_count: "+str(threading.active_count()))
 
 
 app = falcon.API()
