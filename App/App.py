@@ -1,12 +1,13 @@
 from wsgiref.simple_server import make_server
 import falcon
+import threading
 
 
 class TopicModelingResource:
     def on_get(self, req, resp):
         """Handles GET requests"""
         resp.status = falcon.HTTP_200  # This is the default status
-        resp.body = ('Hello World.')
+        resp.body = ("thread id: "+threading.get_ident())
 
 
 app = falcon.API()
